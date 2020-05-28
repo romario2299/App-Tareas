@@ -1,0 +1,53 @@
+<div class="container blockquote contenedor" *ngIf="show">
+    <div class="text-right">
+        <button type="button" class="btn btn-danger" (click)=cerrarSesion()>Cerrar Sesión</button>
+    </div>
+    <div class="mb-5">
+        <h1 class=" text-center mb-5">Hola {{usuario.nombre}}</h1>
+    </div>
+
+    <table class="table animated fadeIn fast" *ngIf="showTable">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Tarea</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Prioridad</th>
+                <th scope="col">Fecha de vencimiento</th>
+                <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tarea of usuario.tareas; let i = index;">
+                    <th scope="row">{{i+1}}</th>
+                    <td>
+                        <p *ngIf="!edit[i]"> {{tarea.nombre}} </p>
+                        <input type="text" class="form-control" *ngIf="edit[i]" [(ngModel)]="tarea.nombre">
+                    </td>
+                    <td>
+                        <p *ngIf="!edit[i]"> {{tarea.prioridad}} </p>
+                        <select class="custom-select" *ngIf="edit[i]" [(ngModel)]="tarea.prioridad">
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                          </select>
+                    </td>
+                    <td>
+                        <p *ngIf="!edit[i]">{{tarea.vencimiento | date:'medium'}}</p>
+                        <input type="datetime-local" class="form-control" *ngIf="edit[i]" [(ngModel)]="tarea.vencimiento">
+                    </td>
+                    <td>
+                        <i type="button" class="fas fa-trash-alt" (click)=eliminarTarea(tarea._id)></i>
+                        <i type="button" class="fas fa-edit ml-4" (click)="cambiarAEdicion(i)"></i>
+                        <button type="button" class="btn btn-success btn-sm ml-4" *ngIf="edit[i]" (click)="editarTarea(tarea._id, i)">Ok</button>
+                    </td>
+                </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <h2 *ngIf="!showTable">Anímate y agrega tus nuevas tareas</h2>
+    </div>
+    <div class="text-center mt-5">
+        <app-modal (usuario)="mostrarTareaCreada($event)"></app-modal>
+    </div>
+    
+</div>

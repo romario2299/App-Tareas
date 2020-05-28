@@ -1,0 +1,48 @@
+<div class="container blockquote contenedor animated fadeIn fast">
+
+    <div class="mb-5">
+        <h1 class=" text-center mb-5">Hola, gracias por querer hacer parte de esta App</h1>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3">
+                <h3 class="mb-4">Ingresa tu información</h3>
+                
+                <form [formGroup] = "forma" (submit) = "crearUsuario()">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" 
+                               class="form-control"
+                               formControlName = "nombre"
+                               [class.is-invalid]="nombreNoValido">
+                        <small *ngIf="nombreNoValido" class="form-text text-muted">Por favor ingrese su nombre</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" 
+                               class="form-control"
+                               formControlName = "email"
+                               [class.is-invalid]="emailNoValido">
+                        <small *ngIf="emailNoValido" class="form-text text-muted">Por favor ingrese su email</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" 
+                               class="form-control"
+                               formControlName = "password"
+                               [class.is-invalid]="passNoValido">
+                        <small *ngIf="passNoValido" class="form-text text-muted">Por favor ingrese su contraseña</small>
+                    </div>
+                    <small *ngIf="usuarioNoValido" class="form-text text-danger mb-4">Usuario ya existe</small>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg m-2">Registrarme</button>
+                        <button type="button" class="btn btn-secondary btn-lg m-2" [routerLink]="'/home'">Regresar</button>
+                    </div>
+                </form>
+          
+            </div>
+        </div>
+      </div>
+</div>
+

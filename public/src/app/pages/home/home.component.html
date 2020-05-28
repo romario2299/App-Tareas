@@ -1,0 +1,39 @@
+<div class="container blockquote contenedor animated fadeIn fast">
+
+    <div class="mb-5">
+        <h1 class=" text-center mb-5">Bienvenido a la Aplicación de Tareas</h1>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-6 offset-3">
+                <h3 class="mb-4">Por favor ingrese sus datos</h3>
+                
+                <form [formGroup] = "forma" (submit) = "validarUsuario()">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" 
+                               class="form-control"
+                               formControlName = "email"
+                               [class.is-invalid]="emailNoValido">
+                        <small *ngIf="emailNoValido" class="form-text text-muted">Por favor ingrese su email</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" 
+                               class="form-control"
+                               formControlName = "password"
+                               [class.is-invalid]="passNoValido">
+                        <small *ngIf="passNoValido" class="form-text text-muted">Por favor ingrese su contraseña</small>
+                    </div>
+                    <small *ngIf="usuarioNoValido" class="form-text text-danger mb-4">Datos de ingreso incorrectos</small>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg m-2">Ingresar</button>
+                        <a [routerLink]="'/usuario'" class="ml-3">Registrarme</a>
+                    </div>
+                </form>
+          
+            </div>
+        </div>
+      </div>
+</div>
