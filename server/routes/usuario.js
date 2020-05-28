@@ -2,6 +2,7 @@ const express       = require('express');
 const bodyParser    = require('body-parser');
 const bcrypt        = require('bcrypt');
 const jwt           = require('jsonwebtoken');
+const path          = require('path'); 
 const Usuario       = require('../../models/usuario');
 
 const app = express();
@@ -76,6 +77,11 @@ app.post('/Nuevousuario', function (req, res) {
             }
         });       
     });
+});
+
+app.get('/*', function(req, res) {
+     
+    res.sendFile( path.resolve(__dirname, '../../public/dist/public/index.html') );
 });
 
 module.exports = app;
