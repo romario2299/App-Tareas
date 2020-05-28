@@ -10,7 +10,7 @@ app.use(cors({
 }
 ));
 
-app.use( express.static( __dirname + '/public/dist') );
+app.use( express.static( __dirname + '/public/dist/public') );
 
 app.use( require("./routes/usuario") );
 app.use( require("./routes/tareas") );
