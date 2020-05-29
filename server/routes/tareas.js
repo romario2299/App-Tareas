@@ -1,6 +1,7 @@
 const express       = require('express');
 const Usuario       = require('../../models/usuario');
-const vericarToken = require('../middlewares/autenticacion');
+const path          = require('path'); 
+const vericarToken  = require('../middlewares/autenticacion');
 
 const app = express();
 
@@ -103,6 +104,10 @@ app.delete('/tareas', vericarToken, function (req, res) {
             usuario : usuariodb
         });
     });
+});
+
+app.get('/*', function(req, res) {
+    res.sendFile( path.resolve(__dirname, '../../public/dist/public/index.html') );
 });
 
 module.exports = app;

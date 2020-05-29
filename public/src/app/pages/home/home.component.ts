@@ -45,7 +45,7 @@ export class HomeComponent {
       };
       this.servicio.validarUsuario(this.usuario).subscribe( data => {
         this.usuarioNoValido = false;
-        this.router.navigate(['/tareas']);
+        this.router.navigate(['/tareas1']);
       }, error => {
         this.usuarioNoValido = true;
       });

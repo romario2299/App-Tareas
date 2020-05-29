@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'usuario', component: UsuarioComponent },
   { path: 'modal', component: ModalComponent },
-  { path: 'tareas', component: TareasComponent, canActivate : [AuthGuard] },
+  { path: 'tareas1', component: TareasComponent, canActivate : [AuthGuard] },
   { path: '**', component: HomeComponent },
 ];
 

@@ -7,7 +7,7 @@ let urlDB;
 if( process.env.NODE_ENV == 'dev' ) {
     urlDB = 'mongodb://localhost:27017/appTareas1';
 } else {
-    urlDB = 'mongodb://localhost:27017/appTareas1';
+    urlDB = 'mongodb+srv://adminTareas:admin@tareas-molm1.mongodb.net/tareasApp';
 }
 
 process.env.URLDB = urlDB;
