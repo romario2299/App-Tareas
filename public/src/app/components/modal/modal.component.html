@@ -17,7 +17,7 @@
                     class="form-control" 
                     formControlName="nombre"
                     [class.is-invalid]="nombreNoValido">
-            <small *ngIf="nombreNoValido" class="form-text text-muted">Por favor ingrese el nombre de la tarea</small>
+            <small *ngIf="nombreNoValido" class="form-text text-danger">Por favor ingrese el nombre de la tarea</small>
           </div>
           <div class="form-group">
             <label class="col-form-label">Prioridad</label>
@@ -30,6 +30,7 @@
           <div class="form-group">
             <label class="col-form-label">Fecha</label>
             <input type="datetime-local" class="form-control" formControlName="vencimiento">
+            <small *ngIf="fechaNoValido" class="form-text text-danger">Selecciona una fecha posterior a este momento</small>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

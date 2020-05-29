@@ -1,7 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConnectionAPIService } from 'src/app/services/connection-api.service';
-
+import * as bootstrap from 'bootstrap';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-modal',
@@ -34,14 +35,25 @@ export class ModalComponent {
   get nombreNoValido() {
     return this.forma.get('nombre').invalid && this.forma.get('nombre').touched;
   }
+  get fechaNoValido() {
+    let hoy = new Date().getTime();
+    let fechaIn: any = Date.parse( this.forma.controls['vencimiento'].value );
+    if (fechaIn > hoy) {
+      return false;
+    } else {
+      return true;
+    }
+
+  }
 
   crearTarea() {
-    if (this.forma.invalid) {
+    if (this.forma.invalid || this.fechaNoValido) {
       this.forma.controls['nombre'].markAsTouched();
     } else {
       this.servicio.crearTarea(this.forma.value).subscribe( data => {
         this.usuario.emit(data);
       });
+      (<any>$('#exampleModal')).modal('hide');
     }
   }
 

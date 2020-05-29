@@ -1,8 +1,11 @@
 <div class="container blockquote contenedor" *ngIf="show">
-    <div class="text-right">
-        <button type="button" class="btn btn-danger" (click)=cerrarSesion()>Cerrar Sesión</button>
+    
+    <div class="row">
+        <div class="col-12 offset-0 text-right">
+            <button type="button" class="btn btn-danger" (click)=cerrarSesion()>Cerrar Sesión</button>
+        </div>
     </div>
-    <div class="mb-5">
+    <div class="my-5">
         <h1 class=" text-center mb-5">Hola {{usuario.nombre}}</h1>
     </div>
 
