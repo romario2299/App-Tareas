@@ -1,8 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConnectionAPIService } from 'src/app/services/connection-api.service';
-import * as bootstrap from 'bootstrap';
-import * as $ from "jquery";
+import { ajax, css } from "jquery";
 
 @Component({
   selector: 'app-modal',
