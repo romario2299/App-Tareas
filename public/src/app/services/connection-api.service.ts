@@ -11,9 +11,10 @@ import { Usuario } from '../models/usuario.model';
 
 export class ConnectionAPIService {
 
-  urlUsuario = 'http://localhost:3000/usuario';
-  urlNuevoUsuario = 'http://localhost:3000/nuevoUsuario';
-  urlTareas = 'http://localhost:3000/tareas';
+  servidor =        'https://app-tareas.herokuapp.com';
+  urlUsuario =      `${this.servidor}/usuario`;
+  urlNuevoUsuario = `${this.servidor}/nuevoUsuario`;
+  urlTareas =       `${this.servidor}/tareas`;
   token = '';
 
   constructor( private http: HttpClient) { }
